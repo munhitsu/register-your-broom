@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Purpose conversion spell</h1>
+
+      <form class="form" action="/person-1-name" method="post">
+
+        <p>Name the spell that was used to change the purpose of the object from sanitary to transportation</p>
+
+        {{ govukInput({
+        label: {
+        text: "Spell Name",
+        classes: "govuk-label--l",
+        isPageHeading: true
+        },
+        id: "broom-spell",
+        name: "broom-spell",
+        value: data['broom-spell']
+        }) }}
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

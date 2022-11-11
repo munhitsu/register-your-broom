@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Model</h1>
+
+      <form class="form" action="/broom-sn" method="post">
+
+        <p>Please provide manufacturer specific broom model name</p>
+
+        {{ govukInput({
+        label: {
+        text: "What is the exact model of your broom?",
+        classes: "govuk-label--l",
+        isPageHeading: true
+        },
+        id: "broom-model",
+        name: "broom-model",
+        value: data['broom-model']
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

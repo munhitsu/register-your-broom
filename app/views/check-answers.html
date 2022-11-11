@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+
+      <h2 class="govuk-heading-m">Manufacturing details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Country
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['broom-country'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/broom-country">
+              Change
+              <span class="govuk-visually-hidden"> Country</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Manufacturer
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['broom-manufacturer'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/broom-manufacturer">
+              Change
+              <span class="govuk-visually-hidden"> Manufacturer</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Model
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['broom-model'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/broom-model">
+              Change
+              <span class="govuk-visually-hidden"> Model</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            S/N
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['broom-sn'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/broom-sn">
+              Change
+              <span class="govuk-visually-hidden"> S/N</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Spell
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['broom-spell'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="/broom-spell">
+              Change
+              <span class="govuk-visually-hidden"> Spell</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Your Details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['person-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> Name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of Birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['person-dob'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> Date of Birth</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Home Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['person-address'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> Home address</span>
+            </a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

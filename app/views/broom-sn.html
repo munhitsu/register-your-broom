@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Serial Number</h1>
+
+      <form class="form" action="/broom-spell" method="post">
+
+        <p>The Serial Number is usually located on a broom handle</p>
+
+        {{ govukDetails({
+        summaryText: "Your consumer right",
+        text: "Every broom sold or imported to the UK is required to have a unique Serial Number. If the Serial Number can not be found of the broom body, then the seller is required to provide you with a Certificate of Authenticity within 7 days."
+        }) }}
+
+        {{ govukInput({
+        label: {
+        text: "Broom Serial Number",
+        classes: "govuk-label--l",
+        isPageHeading: true
+        },
+        id: "broom-sn",
+        name: "broom-sn",
+        value: data['broom-sn']
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
